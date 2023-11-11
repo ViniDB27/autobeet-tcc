@@ -1,0 +1,1 @@
+# recebe o dado tratado, pega apenas o primeiro batch (se houver 2 ou mais), gera a imagem e salva no banco e retorna o caminho onde a img foi salva

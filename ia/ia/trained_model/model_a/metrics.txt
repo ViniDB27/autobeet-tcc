@@ -1,0 +1,1 @@
+'f1', 'recall', 'rhythms','qtd_iters_boostrap', 'acuracia_media','desvio_padrao_do_erro'
