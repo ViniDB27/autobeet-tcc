@@ -12,12 +12,15 @@ class DiagnosisController extends Controller
         return view('history');
     }
 
-    public function create()
+    public function store(Request $request)
     {
-        //
+        dump($request['file']);
     }
 
-    public function store(Request $request)
+
+
+
+    public function create()
     {
         //
     }

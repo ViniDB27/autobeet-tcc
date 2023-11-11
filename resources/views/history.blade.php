@@ -25,10 +25,11 @@
     </nav>
 
     <!-- Modal Structure -->
-    <form id="modal-file-upload" class="modal" action="" method="POST">
+    <form id="modal-file-upload" class="modal" action="{{ route('history.store')  }}" method="POST">
         <div class="modal-content">
             <h4>Envie o arquivo do novo diagnóstico</h4>
             <div class="file-field input-field">
+                @csrf
                 <div class="btn blue">
                     <span>Arquivo</span>
                     <input type="file" name="file">

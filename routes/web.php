@@ -3,19 +3,10 @@
 use App\Http\Controllers\DiagnosisController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/history', [DiagnosisController::class, 'index']);
+Route::get('/history', [DiagnosisController::class, 'index'])->name('history.index');
+Route::post('/history', [DiagnosisController::class, 'store'])->name('history.store');
