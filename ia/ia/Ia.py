@@ -15,12 +15,12 @@ class Ia:
                 processed_data = transformData.transformation_and_tensor(data)
                 model_cnn = LoadModel()
                 classification = EvaluateModel(model_cnn, processed_data).evaluate()
-                
+
             else:
                 return jsonify({'error': 'O arquivo não passou nas verificações'})
 
             return jsonify({'success': 'Classificação realizada com sucesso', 'result':classification})
-        
+
         except Exception as e:
             # Lidando com exceções não tratadas, como problemas de leitura de arquivo, erros de transformação, etc.
             return jsonify({'error': f'Ocorreu um erro durante o processamento: {str(e)}'})

@@ -8,14 +8,16 @@ api = Api(app)
 
 class IaController(Resource):
     def post(self):
-        request = reqparse.RequestParser
-        request.add_argument('file')
-        body = request.parse_args()
+        #request = reqparse.RequestParser
+        #print(request)
+        #request.add_argument('file')
+        #print(request.parse_args())
+
         ia = Ia.Ia()
-        return ia.run(body['file'])
+        return ia.run('./storage/app/diagnostics/df1fd22e-fb98-45d0-8bcc-f8a994faea1a.csv')
 
 
 api.add_resource(IaController, '/')
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=8082)
+    app.run(host="0.0.0.0", port=8082, debug=True)

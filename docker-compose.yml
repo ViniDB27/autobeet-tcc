@@ -8,6 +8,9 @@ services:
             - 8082:8082
         environment:
             FLASK_APP: app.py
+        volumes:
+            - './ia:/app'
+            - './storage:/app/storage'
     laravel.test:
         build:
             context: ./vendor/laravel/sail/runtimes/8.2

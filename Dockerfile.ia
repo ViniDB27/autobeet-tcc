@@ -8,6 +8,4 @@ RUN pip install -r requirements.txt
 
 COPY ia .
 
-COPY storage/app ./storage
-
 CMD ["python", "app.py"]
