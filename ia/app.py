@@ -8,13 +8,13 @@ api = Api(app)
 
 class IaController(Resource):
     def post(self):
-        #request = reqparse.RequestParser
-        #print(request)
-        #request.add_argument('file')
-        #print(request.parse_args())
+        parser = reqparse.RequestParser()
+        parser.add_argument('file', type=str)
+        args = parser.parse_args()
+        file = str(args['file'])
 
         ia = Ia.Ia()
-        return ia.run('./storage/app/diagnostics/df1fd22e-fb98-45d0-8bcc-f8a994faea1a.csv')
+        return ia.run(f'./storage/app/{file}')
 
 
 api.add_resource(IaController, '/')
