@@ -25,7 +25,7 @@
     </nav>
 
     <!-- Modal Structure -->
-    <form id="modal-file-upload" class="modal" action="{{ route('history.store')  }}" method="POST">
+    <form id="modal-file-upload" class="modal" action="{{ route('history.store')  }}" method="POST" enctype="multipart/form-data">
         <div class="modal-content">
             <h4>Envie o arquivo do novo diagnóstico</h4>
             <div class="file-field input-field">

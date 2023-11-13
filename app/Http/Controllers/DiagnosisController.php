@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Diagnosis;
 use Illuminate\Http\Request;
+use Ramsey\Uuid\Uuid;
 
 class DiagnosisController extends Controller
 {
@@ -14,7 +16,16 @@ class DiagnosisController extends Controller
 
     public function store(Request $request)
     {
-        dump($request['file']);
+        $diagnosis = new Diagnosis();
+
+        $file = $request->file('file');
+        $fileName = Uuid::uuid4() . "." . $file->getClientOriginalExtension();
+
+        $diagnosis->file = $file->storeAs('diagnostics', $fileName);
+
+        $diagnosis->save();
+
+        dump($diagnosis);
     }
 
 

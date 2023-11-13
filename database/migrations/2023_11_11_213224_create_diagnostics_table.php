@@ -13,18 +13,18 @@ return new class extends Migration
     {
         Schema::create('diagnostics', function (Blueprint $table) {
             $table->id();
-            $table->string('file');
-            $table->string('direct_image');
-            $table->string('name_model');
-            $table->json('result_rhythms');
-            $table->json('accracy_model');
-            $table->json('conf_matriz');
-            $table->json('roc');
-            $table->json('loss_train_val');
-            $table->json('acc_train_val');
-            $table->json('boxplot_models');
-            $table->json('outras_metricas');
-            $table->json('preprocessing_data');
+            $table->string('file')->nullable();
+            $table->string('direct_image')->nullable();
+            $table->string('name_model')->nullable();
+            $table->json('result_rhythms')->nullable();
+            $table->json('accracy_model')->nullable();
+            $table->json('conf_matriz')->nullable();
+            $table->json('roc')->nullable();
+            $table->json('loss_train_val')->nullable();
+            $table->json('acc_train_val')->nullable();
+            $table->json('boxplot_models')->nullable();
+            $table->json('outras_metricas')->nullable();
+            $table->json('preprocessing_data')->nullable();
             $table->timestamps();
         });
     }
