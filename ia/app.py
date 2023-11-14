@@ -11,10 +11,10 @@ class IaController(Resource):
         parser = reqparse.RequestParser()
         parser.add_argument('file', type=str)
         args = parser.parse_args()
-        file = str(args['file'])
+        filePath = str(args['file'])
 
         ia = Ia.Ia()
-        return ia.run(f'./storage/app/{file}')
+        return ia.run(f'./storage/app/{filePath}')
 
 
 api.add_resource(IaController, '/')

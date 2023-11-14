@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Diagnosis;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Ramsey\Uuid\Uuid;
 
@@ -10,7 +11,6 @@ class DiagnosisController extends Controller
 {
     public function index()
     {
-
         return view('history');
     }
 
@@ -23,36 +23,21 @@ class DiagnosisController extends Controller
 
         $diagnosis->file = $file->storeAs('diagnostics', $fileName);
 
-        $diagnosis->save();
+        $url = 'http://172.18.0.1:8082';
+        $client = new Client([
+            'headers' => [ 'Content-Type' => 'application/json' ]
+        ]);
 
-        dump($diagnosis);
+        $response = $client->post($url, [
+            'body' => json_encode(['file' =>  $diagnosis->file])
+        ]);
+
+        $body = json_decode($response->getBody()->getContents());
+
+
+        //$diagnosis->save();
+
+        dump($body);
     }
 
-
-
-
-    public function create()
-    {
-        //
-    }
-
-    public function show(string $id)
-    {
-        //
-    }
-
-    public function edit(string $id)
-    {
-        //
-    }
-
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    public function destroy(string $id)
-    {
-        //
-    }
 }

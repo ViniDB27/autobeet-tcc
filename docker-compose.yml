@@ -8,6 +8,8 @@ services:
             - 8082:8082
         environment:
             FLASK_APP: app.py
+        networks:
+            - ia
         volumes:
             - './ia:/app'
             - './storage:/app/storage'
@@ -32,6 +34,7 @@ services:
         volumes:
             - '.:/var/www/html'
         networks:
+            - ia
             - sail
         depends_on:
             - ia
@@ -61,8 +64,10 @@ services:
             retries: 3
             timeout: 5s
 networks:
+    ia:
     sail:
         driver: bridge
+
 volumes:
     sail-mysql:
         driver: local
