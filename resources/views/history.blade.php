@@ -44,7 +44,14 @@
         </div>
     </form>
 
-    <div class="container center-align" style="min-height: 600px; margin-top: 100px;" >
+    @if(isset($error))
+        <div class="container center-align red" style="width:100%; padding: 10px 0; margin-top: 100px;"  >
+            <p class="white-text" >{{ $error }}</p>
+        </div>
+    @endif
+
+
+    <div class="container center-align" style="min-height: 400px; margin-top: 100px;" >
         <table>
             <thead>
                 <tr>

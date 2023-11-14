@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Diagnosis;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 use Ramsey\Uuid\Uuid;
 
 class DiagnosisController extends Controller
@@ -33,6 +34,10 @@ class DiagnosisController extends Controller
         ]);
 
         $body = json_decode($response->getBody()->getContents());
+
+        if($body->error) {
+            return view('history', [ 'error' => $body->error] );
+        }
 
 
         //$diagnosis->save();
